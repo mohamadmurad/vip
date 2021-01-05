@@ -18,6 +18,8 @@ Route::group(['middleware' => ['auth:sanctum']],function (){
     Route::get('/',[\App\Http\Controllers\HomeController::class,'home'])->name('home');
     Route::get('/info',[\App\Http\Controllers\CardsController::class,'info'])->name('info');
     Route::post('/withdraw',[\App\Http\Controllers\CardsController::class,'withdraw'])->name('withdraw');
+    Route::post('/addCard',[\App\Http\Controllers\CardsController::class,'addCard'])->name('addCard');
+    Route::get('/create',[\App\Http\Controllers\CardsController::class,'create'])->name('create');
     Route::get('/get',function (){
         redirect('info');
     })->name('withdrawget');

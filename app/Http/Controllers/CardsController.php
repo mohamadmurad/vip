@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\addCard;
 use App\Http\Requests\info;
 use App\Http\Requests\withdraw;
 use App\Models\cards;
@@ -14,6 +15,31 @@ use Illuminate\Support\Facades\DB;
 
 class CardsController extends Controller
 {
+
+    public function create(){
+        return view('card.create');
+    }
+
+
+    public function addCard(addCard $request){
+
+        $firstBarcode = $request->get('firstBarcode');
+        $lastBarcode = $request->get('lastBarcode');
+        $balance = $request->get('balance');
+
+        for ($i = $firstBarcode;$i<=$lastBarcode;$i++){
+            $card = cards::create([
+                'barcode' => $i,
+                'balance' =>$balance,
+            ]);
+        }
+
+        return response()->json([
+            'data' => true,
+        ]);
+
+    }
+
 
     public function info(info $request){
 
