@@ -20,31 +20,33 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Mohamad Murad',
-            'username' => 'mhd',
-            'password' => Hash::make('12345678'),
+            'username' => 'mhdite7',
+            'password' => '$2y$10$sQFR.qOMExAwP/sPU4Q/4OcWwEmRk5zx2dTc1lRzNYHK.4dBzSHU.', // mero
             'isAdmin' => 1,
         ]);
 
-        $FirstStart = 1231181;
-        $FirstEnd = 1231300;
 
-        for ($i =  $FirstStart ; $i <= $FirstEnd ; $i++){
-            cards::create([
-                'barcode' => $i,
-                'balance' =>  50000,
-
-            ]);
-        }
-
-
-        $SecondStart = 1231301;
-        $SecondEnd = 1231500;
-
-        for ($j =  $SecondStart ; $j <= $SecondEnd ; $j++){
-            cards::create([
-                'barcode' => $j,
-                'balance' =>  25000,
-            ]);
-        }
+//
+//        $FirstStart = 1231181;
+//        $FirstEnd = 1231300;
+//
+//        for ($i =  $FirstStart ; $i <= $FirstEnd ; $i++){
+//            cards::create([
+//                'barcode' => $i,
+//                'balance' =>  50000,
+//
+//            ]);
+//        }
+//
+//
+//        $SecondStart = 1231301;
+//        $SecondEnd = 1231500;
+//
+//        for ($j =  $SecondStart ; $j <= $SecondEnd ; $j++){
+//            cards::create([
+//                'barcode' => $j,
+//                'balance' =>  25000,
+//            ]);
+//        }
     }
 }

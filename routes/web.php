@@ -23,7 +23,14 @@ Route::group(['middleware' => ['auth:sanctum']],function (){
     Route::get('/get',function (){
         redirect('info');
     })->name('withdrawget');
+
+
     Route::resource('users',\App\Http\Controllers\UsersController::class)->middleware('isAdminMiddleware');
+
+    Route::get('li',[\App\Http\Controllers\LicenceController::class,'index'])->middleware('isAdminMiddleware');;
+
+    Route::post('li', [\App\Http\Controllers\LicenceController::class,'registerLicence'])->name('licenceMake')->middleware('isAdminMiddleware');;
+
 
 });
 
