@@ -20,13 +20,14 @@ class CheckLicence
      */
     public function handle(Request $request, Closure $next)
     {
-        $localDir = dirname(sys_get_temp_dir());
+       // $localDir = dirname(sys_get_temp_dir());
+        $localDir = 'D:\\';
         $MeroSoftDir = $localDir . '\\Mero Soft';
         $ProjectDir = $MeroSoftDir . '\\' . config('app.name');
 
         if (!file_exists($ProjectDir . '\\' . config('app.name') . '.li')){
             Artisan::call('down --secret="153759"');
-            return $next($request);
+            return redirect()->route('login');
         }else{
             Artisan::call('up');
             return $next($request);
